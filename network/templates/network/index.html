@@ -1,0 +1,53 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+
+
+{% block body %}
+    <h1 id="header-title">Main Feed</h1>
+    <div id="user-header"></div>
+    <div id="feed" class="list-group"></div>
+    <div id="show-more-posts">show more posts...</div>
+    <div id="create_post_form">
+        <div class="modal fade" id="modal_createPost" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <div id="modal-title">Title</div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <form id="post_form" method="post">
+              <div class="modal-body">
+                  <div id="compose-alert" class="alert alert-danger" role="alert">
+                    Alert!
+                  </div>
+                  <div id="modal-body-contents"></div>
+                  <div id="post_entry_div" class="media">
+                    <img class="mr-3 align-self-start profilepic" src="{{user_url}}">
+                        {% csrf_token %}
+                    <div class="media-body">
+                        {{ compose_form.as_p }}
+                    </div>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" id="submit_post" class="btn btn-primary" data-source="home">Submit</button>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'network/index.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+{% endblock %}
+

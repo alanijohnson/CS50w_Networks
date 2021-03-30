@@ -1,0 +1,55 @@
+
+.profilepic {
+    border-radius: "50%";
+    width = "50px";
+    height = "50px";
+    object-fit = "cover";
+}
+
+@keyframes romove_post {
+    
+    from {
+        height: 100%
+    }
+
+    to {
+        height: 0%
+    }
+}
+
+.post {
+  overflow:hidden;
+  transition:max-height 0.5s ease-out, padding-top 0.5s ease-out, padding-bottom 0.5s ease-out;
+  height:auto;
+  max-height:600px;
+  padding:10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.post.collapsed {
+  max-height:0;
+  padding-top:0px;
+  padding-bottom:0px;
+}
+
+#show-more-posts {
+    width:100%;
+    padding:10px;
+    color:blue;
+    border-top: thin solid gray;
+    font-weight: bold;
+}
+
+.status {
+    color:blue;
+}
+
+#header-title {
+    padding-left:10px;
+}
+
+.navbar-nav .nav-item {
+    padding: 0px 5px 0px 5px;
+    width:fit-content;
+    height:fit-content; 
+}
